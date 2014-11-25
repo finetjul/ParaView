@@ -6685,8 +6685,8 @@
         <EnumerationDomain name="enum">
           <Entry text="Line" value="0" />
           <Entry text="Bar" value="2" />
-      <Entry text="Bag" value="4" />
-      <Entry text="FunctionalBag" value="5" />
+          <Entry text="Bag" value="4" />
+          <Entry text="FunctionalBag" value="5" />
         </EnumerationDomain>
       </IntVectorProperty>
       <IntVectorProperty command="SetFlattenTable"
