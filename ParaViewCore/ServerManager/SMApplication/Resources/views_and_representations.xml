@@ -6312,8 +6312,9 @@
       <InputProperty command="SetInputConnection"
                      name="Input">
         <Documentation>Data input for the representation.</Documentation>
-        <DataTypeDomain name="input_type">
-          <DataType value="vtkDataObject" />
+        <DataTypeDomain composite_data_supported="1"
+                        name="input_type">
+          <DataType value="vtkTable" />
         </DataTypeDomain>
       </InputProperty>
       <IntVectorProperty command="SetVisibility"
@@ -6364,7 +6365,6 @@
                              name="tree">
           <RequiredProperties>
             <Property function="Input" name="Input" />
-            <Property function="CompositeIndexSelection" name="CompositeDataSetIndex" />
           </RequiredProperties>
         </CompositeTreeDomain>
       </IntVectorProperty>
