@@ -107,9 +107,7 @@ int vtkPVExtractBagPlots::RequestData(vtkInformation*,
   vtkMultiBlockDataSet* outTables =
     vtkMultiBlockDataSet::SafeDownCast(
       outputInfo->Get( vtkDataObject::DATA_OBJECT() ) );
-  
-  //vtkTable* outTable = vtkTable::GetData(outputVector, 0);
-  //vtkTable* outTable2 = vtkTable::GetData(outputVector, 1);
+
   vtkTable* outTable = 0;
   vtkTable* outTable2 = 0;
 
@@ -139,7 +137,6 @@ int vtkPVExtractBagPlots::RequestData(vtkInformation*,
 
   vtkTable *inputTable = subTable.GetPointer();
 
-  //outTable->ShallowCopy(subTable.GetPointer());
   outTable = subTable.GetPointer();
 
   if (this->TransposeTable)
@@ -152,7 +149,6 @@ int vtkPVExtractBagPlots::RequestData(vtkInformation*,
     inputTable = transpose->GetOutput();
     }
 
-  //outTable2->ShallowCopy(inputTable);
   outTable2 = inputTable;
 
   // Compute PCA
@@ -178,7 +174,6 @@ int vtkPVExtractBagPlots::RequestData(vtkInformation*,
   vtkTable* outputPCATable = vtkTable::SafeDownCast(
     pca->GetOutputDataObject(vtkStatisticsAlgorithm::OUTPUT_MODEL));
 
-  //outTable2->ShallowCopy(outputPCATable);
   outTable2 = outputPCATable;
 
   // Compute HDR
@@ -216,13 +211,11 @@ int vtkPVExtractBagPlots::RequestData(vtkInformation*,
   vtkMultiBlockDataSet* outputHDR = vtkMultiBlockDataSet::SafeDownCast(
     hdr->GetOutputDataObject(vtkStatisticsAlgorithm::OUTPUT_MODEL));
   vtkTable* outputHDRTable = vtkTable::SafeDownCast(outputHDR->GetBlock(0));
-  //outTable2->ShallowCopy(outputHDRTable);
   outTable2 = outputHDRTable;
   vtkAbstractArray *cname = inputTable->GetColumnByName("ColName");
   if (cname)
     {
     outputHDRTable->AddColumn(cname);
-    //outTable2->AddColumn(cname);
     }
   else
     {
@@ -248,7 +241,6 @@ int vtkPVExtractBagPlots::RequestData(vtkInformation*,
   ebp->Update();
 
   vtkTable* outBPTable = ebp->GetOutput();
-  //outTable->ShallowCopy(outBPTable);
   outTable = outBPTable;
 
   unsigned int blockID = 0;

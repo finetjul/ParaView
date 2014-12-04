@@ -24,7 +24,8 @@
 
 class PVExtractBagPlotsInternal;
 
-class VTKPVVTKEXTENSIONSDEFAULT_EXPORT vtkPVExtractBagPlots : public vtkMultiBlockDataSetAlgorithm
+class VTKPVVTKEXTENSIONSDEFAULT_EXPORT vtkPVExtractBagPlots
+  : public vtkMultiBlockDataSetAlgorithm
 {
 public:
   static vtkPVExtractBagPlots* New();
